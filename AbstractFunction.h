@@ -22,6 +22,7 @@ public:
 	void setArea(VectorXd &l, VectorXd &r);
 protected: 
 	int dim;
+	bool isConvex;
 	RectangularArea domain;
 };
 

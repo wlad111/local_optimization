@@ -25,16 +25,14 @@ VectorXd RandomSearch::optim(AbstractFunction &f)
 {
 	bool flag = false;
 	double t, delta = 0.02;
-	int i = 1;
+	int i = 1, j = 0;
 	int dim = f.getDim();
 	VectorXd y_prev(dim), y_next(dim), x(dim), left(dim), right(dim), x0(dim);
 	x = getPointInArea(f.getArea());
 	x0 = getPointInArea(f.getArea());
 	y_prev = x0;
 	y_next = x;
-	//cout << i << " Iteration" << endl;
-	//cout << y_next << endl;
-	while ((i < MAX_ITERATIONS))
+	while ((i < MAX_ITERATIONS) && (j < COUNT_SUCCESSES))
 	{
 		t = dist(RNG);
 		if (t < p)
@@ -44,6 +42,7 @@ VectorXd RandomSearch::optim(AbstractFunction &f)
 			{
 				y_prev = y_next;
 				y_next = x;
+				j++;
 			}
 		}
 		else
@@ -78,6 +77,7 @@ VectorXd RandomSearch::optim(AbstractFunction &f)
 				//delta *= 0.9;
 				y_prev = y_next;
 				y_next = x;
+				j++;
 			}
 		}
 		i++;

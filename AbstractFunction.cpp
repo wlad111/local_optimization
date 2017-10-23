@@ -6,11 +6,13 @@
 
 AbstractFunction::AbstractFunction()
 {
+
 }
 
 
 AbstractFunction::~AbstractFunction()
 {
+
 }
 
 RectangularArea AbstractFunction::getArea()

@@ -155,8 +155,10 @@
     <ClInclude Include="AbstractFunction.h" />
     <ClInclude Include="AbstractOptimization.h" />
     <ClInclude Include="AbstractStopCrit.h" />
+    <ClInclude Include="FourthDegreeFunction.h" />
     <ClInclude Include="Function4Dim.h" />
     <ClInclude Include="FunctionOne.h" />
+    <ClInclude Include="HimmelblauFunction.h" />
     <ClInclude Include="NearPointsCrit.h" />
     <ClInclude Include="NewtonOptimizer.h" />
     <ClInclude Include="RandomSearch.h" />
@@ -171,8 +173,10 @@
     <ClCompile Include="AbstractFunction.cpp" />
     <ClCompile Include="AbstractOptimization.cpp" />
     <ClCompile Include="AbstractStopCrit.cpp" />
+    <ClCompile Include="FourthDegreeFunction.cpp" />
     <ClCompile Include="Function4Dim.cpp" />
     <ClCompile Include="FunctionOne.cpp" />
+    <ClCompile Include="HimmelblauFunction.cpp" />
     <ClCompile Include="local_optimization.cpp" />
     <ClCompile Include="NearPointsCrit.cpp" />
     <ClCompile Include="NewtonOptimizer.cpp" />
