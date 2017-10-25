@@ -11,15 +11,15 @@ using namespace std;
 class AbstractFunction
 {
 public:
-	virtual double eval(VectorXd &x) = 0;
+	virtual double eval(const VectorXd &x) const = 0;
 	virtual string getName() = 0;
-	VectorXd gradient(VectorXd &x);
-	MatrixXd hessian(VectorXd &x);
-	const int getDim();
-	RectangularArea getArea();
+	VectorXd gradient(const VectorXd &x) const; 
+	MatrixXd hessian(const VectorXd &x) const;
+	int getDim() const;
+	RectangularArea getArea() const;
 	AbstractFunction();
 	virtual ~AbstractFunction();
-	void setArea(VectorXd &l, VectorXd &r);
+	void setArea(const VectorXd &l, const VectorXd &r);
 protected: 
 	int dim;
 	bool isConvex;

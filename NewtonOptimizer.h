@@ -4,8 +4,7 @@ class NewtonOptimizer :
 	public AbstractOptimizer
 {
 public:
-	VectorXd optim(VectorXd &x0, double eps, AbstractFunction &f, AbstractStopCrit &stop);
-
+	VectorXd optim(const VectorXd &x0, double eps, const AbstractFunction &f, const AbstractStopCrit &stop) const;
 	NewtonOptimizer();
 	~NewtonOptimizer();
 };

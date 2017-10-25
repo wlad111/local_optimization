@@ -4,7 +4,7 @@ class AbstractArea
 public:
 	AbstractArea();
 	virtual ~AbstractArea();
-	const int getDim();
+	int getDim() const;
 protected:
 	int dim;
 };

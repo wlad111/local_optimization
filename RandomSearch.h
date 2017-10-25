@@ -10,8 +10,8 @@ class RandomSearch :
 	public AbstractOptimizer
 {
 public:
-	VectorXd optim(AbstractFunction &f);
-	VectorXd getPointInArea(RectangularArea &area);
+	VectorXd optim(const AbstractFunction &f);
+	VectorXd getPointInArea(const RectangularArea &area);
 	RandomSearch(double prob);
 	~RandomSearch();
 private: 

@@ -9,10 +9,10 @@ class RectangularArea :
 	public AbstractArea
 {
 public:
-	VectorXd getLeft();
-	VectorXd getRight();
+	VectorXd getLeft() const;
+	VectorXd getRight() const;
 	RectangularArea();
-	RectangularArea(VectorXd &l, VectorXd &r, int d);
+	RectangularArea(const VectorXd &l, const VectorXd &r, int d);
 	~RectangularArea();
 private:
 	VectorXd left;

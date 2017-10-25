@@ -75,7 +75,7 @@ int main()
 		AbstractStopCrit* crit = 0;
 		NewtonOptimizer newton;
 		VectorXd x0(f->getDim());
-		cout << "Enter initial vector:" << endl << "Press 0 for Near Points Criterion, 1 for Near values" << endl;
+		cout << "Press 0 for Near Points Criterion, 1 for Near values" << endl;
 		cin >> v;
 		switch (v)
 		{
@@ -88,6 +88,7 @@ int main()
 			crit = new ValuesCriterion;
 			break;
 		}
+		cout << "Enter initial vector:" << endl;
 		for (int i = 0; i < f->getDim(); i++)
 		{
 			cin >> x0(i);
@@ -99,8 +100,10 @@ int main()
 	}
 	case 1:
 	{
-		RandomSearch rs(0.5);
-		cout << rs.optim(*f) << endl;
+		RandomSearch rs(0.7);
+		VectorXd res = rs.optim(*f);
+		cout << res << endl;
+		cout << f->eval(res);
 		break;
 	}
 	}

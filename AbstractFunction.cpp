@@ -15,24 +15,24 @@ AbstractFunction::~AbstractFunction()
 
 }
 
-RectangularArea AbstractFunction::getArea()
+RectangularArea AbstractFunction::getArea() const
 {
 	return domain;
 }
 
 
-const int AbstractFunction::getDim()
+int AbstractFunction::getDim() const
 {
 	return dim;
 }
 
-void AbstractFunction::setArea(VectorXd &l, VectorXd &r)
+void AbstractFunction::setArea(const VectorXd &l, const VectorXd &r)
 {
 	RectangularArea area(l, r, dim);
 	domain = area;
 }
 
-VectorXd AbstractFunction::gradient(VectorXd &x)
+VectorXd AbstractFunction::gradient(const VectorXd &x) const
 {
 	int n = dim;
 	double h = STEP;
@@ -54,7 +54,7 @@ VectorXd AbstractFunction::gradient(VectorXd &x)
 	return(grad);
 }
 
-MatrixXd AbstractFunction::hessian(VectorXd & x)
+MatrixXd AbstractFunction::hessian(const VectorXd &x) const
 {
 	int n = dim;
 	double h = STEP;

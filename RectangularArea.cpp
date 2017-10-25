@@ -7,7 +7,7 @@ RectangularArea::RectangularArea()
 
 }
 
-RectangularArea::RectangularArea(VectorXd &l, VectorXd &r, int d)
+RectangularArea::RectangularArea(const VectorXd &l, const VectorXd &r, int d)
 {
 	dim = d;
 	left = l;
@@ -18,12 +18,12 @@ RectangularArea::~RectangularArea()
 {
 }
 
-VectorXd RectangularArea::getLeft()
+VectorXd RectangularArea::getLeft() const
 {
 	return left;
 }
 
-VectorXd RectangularArea::getRight()
+VectorXd RectangularArea::getRight() const
 {
 	return right;
 }

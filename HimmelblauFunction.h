@@ -5,7 +5,7 @@ class HimmelblauFunction :
 {
 public:
 	string getName() override;
-	double eval(VectorXd &x) override;
+	double eval(const VectorXd &x) const override;
 	HimmelblauFunction();
 	~HimmelblauFunction();
 };

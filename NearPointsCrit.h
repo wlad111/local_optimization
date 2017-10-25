@@ -4,7 +4,7 @@ class NearPointsCrit :
 	public AbstractStopCrit
 {
 public:
-	bool criterion(VectorXd &x1, VectorXd &x2, double eps, AbstractFunction &f) override;
+	bool criterion(const VectorXd &x1, const VectorXd &x2, double eps, const AbstractFunction &f) const override;
 	NearPointsCrit();
 	~NearPointsCrit();
 };

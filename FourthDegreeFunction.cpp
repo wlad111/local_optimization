@@ -27,7 +27,7 @@ string FourthDegreeFunction::getName()
 }
 
 
-double FourthDegreeFunction::eval(VectorXd &x)
+double FourthDegreeFunction::eval(const VectorXd &x) const
 {
 	return (x(0)*x(0)*x(0)*x(0) + x(1)*x(1)*x(1)*x(1));
 }

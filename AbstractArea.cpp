@@ -13,7 +13,7 @@ AbstractArea::~AbstractArea()
 {
 }
 
-const int AbstractArea::getDim()
+int AbstractArea::getDim() const
 {
 	return dim;
 }

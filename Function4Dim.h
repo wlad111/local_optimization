@@ -4,8 +4,8 @@ class Function4Dim :
 	public AbstractFunction
 {
 public:
-	double eval(Eigen::VectorXd &x) override;
-	Function4Dim(VectorXd &left, VectorXd &right);
+	double eval(const Eigen::VectorXd &x) const override;
+	Function4Dim(const VectorXd &left, const VectorXd &right);
 	~Function4Dim();
 };
 

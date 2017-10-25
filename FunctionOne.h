@@ -9,7 +9,7 @@ class FunctionOne :
 	public AbstractFunction
 {
 public:
-	double eval(VectorXd &x) override;
+	double eval(const VectorXd &x) const override;
 	string getName() override;
 	FunctionOne();
 	~FunctionOne();

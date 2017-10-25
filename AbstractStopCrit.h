@@ -10,7 +10,7 @@ using namespace std;
 class AbstractStopCrit
 {
 public:
-	virtual bool criterion(VectorXd &x1, VectorXd &x2, double eps, AbstractFunction &f) = 0;
+	virtual bool criterion(const VectorXd &x1, const VectorXd &x2, double eps, const AbstractFunction &f) const = 0;
 	AbstractStopCrit();
 	virtual ~AbstractStopCrit();
 };
