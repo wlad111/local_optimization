@@ -1,4 +1,12 @@
+/**
+\file
+\brief Header file that contains default constant values
+
+This file contains constant values that are used in program
+*/
+
 #pragma once
+
 
 const double EPSILON = 0.00001;
 const int MAX_ITERATIONS = 50000;

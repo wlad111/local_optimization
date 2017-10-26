@@ -1,3 +1,4 @@
+
 #pragma once
 #include "AbstractFunction.h"
 class FourthDegreeFunction :

@@ -1,3 +1,9 @@
+/*!
+	\brief Stop criterion 
+
+	Stop criterion that compares how near are two iterations. Extends AbstractStopCrit
+*/
+
 #pragma once
 #include "AbstractStopCrit.h"
 class NearPointsCrit :

@@ -1,0 +1,109 @@
+\section{Abstract\+Function Class Reference}
+\label{class_abstract_function}\index{Abstract\+Function@{Abstract\+Function}}
+Inheritance diagram for Abstract\+Function\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.891892cm]{class_abstract_function}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual double \textbf{ eval} (const Vector\+Xd \&x) const =0
+\item 
+\mbox{\label{class_abstract_function_a1e317092e346f8791c29fe468e364482}} 
+virtual string {\bfseries get\+Name} ()=0
+\item 
+Vector\+Xd \textbf{ gradient} (const Vector\+Xd \&x) const
+\item 
+Matrix\+Xd \textbf{ hessian} (const Vector\+Xd \&x) const
+\item 
+int \textbf{ get\+Dim} () const
+\item 
+\textbf{ Rectangular\+Area} \textbf{ get\+Area} () const
+\item 
+void \textbf{ set\+Area} (const Vector\+Xd \&l, const Vector\+Xd \&r)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{class_abstract_function_af31a6fcfa297e33f6e330ec4f85c8a40}} 
+int {\bfseries dim}
+\item 
+\mbox{\label{class_abstract_function_ad19673268969e543d3871b15a0aba726}} 
+bool {\bfseries is\+Convex}
+\item 
+\mbox{\label{class_abstract_function_ad8c7ab1978041adf814b8a8021e77823}} 
+\textbf{ Rectangular\+Area} {\bfseries domain}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{class_abstract_function_aff29a02b7083c1989c5e7dcf49312d31}} 
+\index{Abstract\+Function@{Abstract\+Function}!eval@{eval}}
+\index{eval@{eval}!Abstract\+Function@{Abstract\+Function}}
+\subsubsection{eval()}
+{\footnotesize\ttfamily virtual double Abstract\+Function\+::eval (\begin{DoxyParamCaption}\item[{const Vector\+Xd \&}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+evaluates function at chosen vector 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em x} & Vector of corresponding dimension \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \textbf{ Function\+One} \doxyref{}{p.}{class_function_one_a27507eb602a2c520cdee4d6fd952d807}, \textbf{ Fourth\+Degree\+Function} \doxyref{}{p.}{class_fourth_degree_function_aa60e0ac44cc0ae5474bbabf92b20c7c1}, and \textbf{ Himmelblau\+Function} \doxyref{}{p.}{class_himmelblau_function_ae6aaab9b1087367128177f871d911855}.
+
+\mbox{\label{class_abstract_function_a91976b6cc7078d37d1737d5cb6295f87}} 
+\index{Abstract\+Function@{Abstract\+Function}!get\+Area@{get\+Area}}
+\index{get\+Area@{get\+Area}!Abstract\+Function@{Abstract\+Function}}
+\subsubsection{get\+Area()}
+{\footnotesize\ttfamily \textbf{ Rectangular\+Area} Abstract\+Function\+::get\+Area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+returns box domain of function \mbox{\label{class_abstract_function_a9f64864e3829c0993d939aadd28e9a45}} 
+\index{Abstract\+Function@{Abstract\+Function}!get\+Dim@{get\+Dim}}
+\index{get\+Dim@{get\+Dim}!Abstract\+Function@{Abstract\+Function}}
+\subsubsection{get\+Dim()}
+{\footnotesize\ttfamily int Abstract\+Function\+::get\+Dim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+returns dimension \mbox{\label{class_abstract_function_acca8abaa171dee371a26630943069c21}} 
+\index{Abstract\+Function@{Abstract\+Function}!gradient@{gradient}}
+\index{gradient@{gradient}!Abstract\+Function@{Abstract\+Function}}
+\subsubsection{gradient()}
+{\footnotesize\ttfamily Vector\+Xd Abstract\+Function\+::gradient (\begin{DoxyParamCaption}\item[{const Vector\+Xd \&}]{x }\end{DoxyParamCaption}) const}
+
+counts approximate gradient of a function at chosen vector 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em x} & Vector of corresponding dimension \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_abstract_function_aa13c89ccb1c6bb6f83691bac92a311f6}} 
+\index{Abstract\+Function@{Abstract\+Function}!hessian@{hessian}}
+\index{hessian@{hessian}!Abstract\+Function@{Abstract\+Function}}
+\subsubsection{hessian()}
+{\footnotesize\ttfamily Matrix\+Xd Abstract\+Function\+::hessian (\begin{DoxyParamCaption}\item[{const Vector\+Xd \&}]{x }\end{DoxyParamCaption}) const}
+
+counts approximate hessian (matrix of second partial derivatives) at chosen vector 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em x} & Vector of corresponding dimension \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_abstract_function_ab9d67ef9caa1be5aefce762ec0f0016d}} 
+\index{Abstract\+Function@{Abstract\+Function}!set\+Area@{set\+Area}}
+\index{set\+Area@{set\+Area}!Abstract\+Function@{Abstract\+Function}}
+\subsubsection{set\+Area()}
+{\footnotesize\ttfamily void Abstract\+Function\+::set\+Area (\begin{DoxyParamCaption}\item[{const Vector\+Xd \&}]{l,  }\item[{const Vector\+Xd \&}]{r }\end{DoxyParamCaption})}
+
+sets box domain of function 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em l} & Vector of left borders \\
+\hline
+\mbox{\tt in}  & {\em r} & Vector of right borders \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/Владислав/\+Documents/\+Visual Studio 2015/\+Projects/local\+\_\+optimization/Abstract\+Function.\+h\item 
+C\+:/\+Users/Владислав/\+Documents/\+Visual Studio 2015/\+Projects/local\+\_\+optimization/Abstract\+Function.\+cpp\end{DoxyCompactItemize}

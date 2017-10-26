@@ -1,3 +1,7 @@
+/*!
+	stop criterion that checks how near are values of function in two vectors
+*/
+
 #pragma once
 #include "AbstractStopCrit.h"
 class ValuesCriterion :

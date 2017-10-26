@@ -1,3 +1,9 @@
+/*!
+	\brief Abstract optimization
+
+	Base class for optimization. 
+*/
+
 #pragma once
 
 #include <Eigen/Dense>
