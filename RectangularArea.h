@@ -23,6 +23,7 @@ public:
 		gets vector of right borders
 	*/
 	VectorXd getRight() const;
+	bool isPointInArea(const VectorXd &x) const;
 	RectangularArea();
 	RectangularArea(const VectorXd &l, const VectorXd &r, int d);
 	~RectangularArea();

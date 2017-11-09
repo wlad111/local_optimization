@@ -15,10 +15,12 @@ NewtonOptimizer::~NewtonOptimizer()
 
 }
 
-
-
 VectorXd NewtonOptimizer::optim(const VectorXd &x0, double eps, const AbstractFunction &f, const AbstractStopCrit &stop) const
 {
+	if (!f.getArea().isPointInArea(x0))
+	{
+		throw exception("wrong initial value");
+	}
 	MatrixXd H = f.hessian(x0);
 	VectorXd x_next = H.colPivHouseholderQr().solve(H*x0 - f.gradient(x0));
 	VectorXd x_prev = x0;

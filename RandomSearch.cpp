@@ -21,6 +21,9 @@ RandomSearch::~RandomSearch()
 
 }
 
+//TODO 
+//return object of type OptimizationResult (vector + iterations)
+
 VectorXd RandomSearch::optim(const AbstractFunction& f)
 {
 	bool flag = false;
@@ -32,7 +35,7 @@ VectorXd RandomSearch::optim(const AbstractFunction& f)
 	x0 = getPointInArea(f.getArea());
 	y_prev = x0;
 	y_next = x;
-	while ((i < MAX_ITERATIONS) && (j < COUNT_SUCCESSES))
+	while ((i < MAX_ITERATIONS))
 	{
 		t = dist(RNG);
 		if (t < p)
