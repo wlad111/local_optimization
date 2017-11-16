@@ -1,7 +1,7 @@
 /*!
 	\brief Stop criterion 
 
-	Stop criterion that compares how near are two iterations. Extends AbstractStopCrit
+	Stop criterion compares how near are two iterations. Extends AbstractStopCrit
 */
 
 #pragma once
@@ -10,7 +10,10 @@ class NearPointsCrit :
 	public AbstractStopCrit
 {
 public:
-	bool criterion(const VectorXd &x1, const VectorXd &x2, double eps, const AbstractFunction &f) const override;
+	bool criterion(const VectorXd &x1, 
+					const VectorXd &x2, 
+					double eps, 
+					const AbstractFunction &f) const override;
 	NearPointsCrit();
 	~NearPointsCrit();
 };

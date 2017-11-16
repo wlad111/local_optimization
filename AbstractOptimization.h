@@ -16,7 +16,6 @@ using namespace std;
 class AbstractOptimizer
 {
 public:
-	//virtual VectorXd optim(VectorXd &x0, double eps, AbstractFunction &f, AbstractStopCrit &stop) = 0;
 	AbstractOptimizer();
 	virtual ~AbstractOptimizer();
 protected:

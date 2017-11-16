@@ -21,10 +21,8 @@ RandomSearch::~RandomSearch()
 
 }
 
-//TODO 
-//return object of type OptimizationResult (vector + iterations)
 
-VectorXd RandomSearch::optim(const AbstractFunction& f)
+OptimizationResult RandomSearch::optim(const AbstractFunction& f)
 {
 	bool flag = false;
 	double t, delta = 0.01;
@@ -71,8 +69,6 @@ VectorXd RandomSearch::optim(const AbstractFunction& f)
 					right(i) = y_next(i) + delta;
 				}
 			}
-			//left = y_next - VectorXd::Constant(dim, delta);
-			//right = y_next + VectorXd::Constant(dim, delta);
 			RectangularArea vicinity(left, right, dim);
 			x = getPointInArea(vicinity);
 			if ((f.eval(x) < f.eval(y_next)))
@@ -84,15 +80,9 @@ VectorXd RandomSearch::optim(const AbstractFunction& f)
 			}
 		}
 		i++;
-		//cout << i << " Iteration" << endl;
-		//cout << y_next << endl;
-
 	}
-	cout << i << " Iterations" << endl;
-	//VectorXd v(1);
-	//v(0) = 0;
-	return y_next;
-	//return v;
+	OptimizationResult res(y_next, f.eval(y_next), i);
+	return res;
 }
 
 VectorXd RandomSearch::getPointInArea(const RectangularArea& area)
@@ -100,10 +90,10 @@ VectorXd RandomSearch::getPointInArea(const RectangularArea& area)
 	VectorXd point(area.getDim());
 	for (int i = 0; i < area.getDim(); i++)
 	{
-		point(i) = (area.getRight()(i) - area.getLeft()(i))*dist(RNG) + area.getLeft()(i);
+		point(i) = (area.getRight()(i) - area.getLeft()(i))*
+			dist(RNG) + area.getLeft()(i);
 	}
 	VectorXd v(1);
 	v(0) = 0;
 	return point;
-	//return v;
 }

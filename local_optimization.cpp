@@ -1,6 +1,3 @@
-// local_optimization.cpp: определяет точку входа для консольного приложения.
-//
-
 #include <iostream>
 #include <Eigen/Dense>
 #include "FunctionOne.h"
@@ -19,6 +16,7 @@ using namespace std;
 
 int main()
 {
+	bool flag = true;
 	int t, v;
 	char s = 'a', u = 'a';
 	AbstractFunction* f = 0;
@@ -50,30 +48,49 @@ int main()
 		break;
 	}
 
-	cout << "Default left borders: " << endl << f->getArea().getLeft() << endl << "Default right borders: " << endl << f->getArea().getRight() << endl << "Press 0 for use custom constrains, something else for defaults";
+	cout << "Default left borders: " << endl 
+		<< f->getArea().getLeft() << endl 
+		<< "Default right borders: " << endl 
+		<< f->getArea().getRight() << endl 
+		<< "Press 0 for use custom constrains, something else for defaults";
 	cin >> u;
 	switch (u)
 	{
 	case '0':
 	{
 		VectorXd left(f->getDim()), right(f->getDim());
-		cout << "Enter left borders:" << endl;
-		for (int i = 0; i < f->getDim(); i++)
+		while (flag)
 		{
-			cin >> left(i);
+			cout << "Enter left borders:" << endl;
+			for (int i = 0; i < f->getDim(); i++)
+			{
+				cin >> left(i);
+			}
+			cout << "Enter right borders:" << endl;
+			for (int i = 0; i < f->getDim(); i++)
+			{
+				cin >> right(i);
+			}
+			try
+			{
+				f->setArea(left, right);
+			}
+			catch (exception &x)
+			{
+				cout << x.what() << endl;
+				flag = true;
+				continue;
+			}
+			flag = false;
 		}
-		cout << "Enter right borders:" << endl;
-		for (int i = 0; i < f->getDim(); i++)
-		{
-			cin >> right(i);
-		}
-		f->setArea(left, right);
-		break;
+			break;
 	}
 	default:
 		break;
 	}
-	cout << "Choose the way of optimization: 0 -- for Newton method, anything else -- for random search" << endl;
+	cout << 
+		"Choose the way of optimization: " << endl <<
+		"0 -- for Newton method, anything else -- for random search" << endl;
 	cin >> t;
 
 	switch (t)
@@ -83,7 +100,9 @@ int main()
 		AbstractStopCrit* crit = 0;
 		NewtonOptimizer newton;
 		VectorXd x0(f->getDim());
-		cout << "Press 0 for Near Points Criterion, anything else for Near values" << endl;
+		cout 
+			<< "Press 0 for Near Points Criterion, anything else for Near values" 
+			<< endl;
 		cin >> v;
 		switch (v)
 		{
@@ -103,7 +122,11 @@ int main()
 		}
 		try 
 		{
-			cout << newton.optim(x0, EPSILON, *f, *crit);
+			OptimizationResult res;
+			res = newton.optim(x0, EPSILON, *f, *crit);
+			cout << "Point: " << endl << res.getOptPoint() << endl
+				<< "Value: " << res.getOptValue() << endl
+				<< "Iterations: " << res.getNumIterations() << endl;
 		}
 		catch (exception &x)
 		{
@@ -114,9 +137,11 @@ int main()
 	default:
 	{
 		RandomSearch rs(0.7);
-		VectorXd res = rs.optim(*f);
-		cout << res << endl;
-		cout << f->eval(res);
+		OptimizationResult res;
+		res = rs.optim(*f);
+		cout << "Point: " << endl << res.getOptPoint() << endl
+			<< "Value: " << res.getOptValue() << endl
+			<< "Iterations: " << res.getNumIterations() << endl;
 		break;
 	}
 	}

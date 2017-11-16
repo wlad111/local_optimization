@@ -29,6 +29,7 @@ string HimmelblauFunction::getName()
 
 double HimmelblauFunction::eval(const Eigen::VectorXd &x) const
 {
-	return (((x(0)*x(0) + x(1) - 11)*(x(0)*x(0) + x(1) - 11) + (x(0) + x(1)*x(1) - 7)*(x(0) + x(1)*x(1) - 7)));
+	return (((x(0)*x(0) + x(1) - 11)*
+		(x(0)*x(0) + x(1) - 11) + (x(0) + x(1)*x(1) - 7)*(x(0) + x(1)*x(1) - 7)));
 }
 

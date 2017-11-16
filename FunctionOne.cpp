@@ -27,11 +27,8 @@ string FunctionOne::getName()
 
 double FunctionOne::eval(const Eigen::VectorXd &x) const
 {
-	//return (((x(0)*x(0) + x(1) - 11)*(x(0)*x(0) + x(1) - 11) + (x(0) + x(1)*x(1) - 7)*(x(0) + x(1)*x(1) - 7)));
-	//return (x(0)*x(0) + x(1)*x(1));
-	//return (x(0)*x(0)*x(0)*x(0) + x(1)*x(1)*x(1)*x(1));
-	return(100 * (x(1) - x(0) * x(0))*(x(1) - x(0) * x(0)) + (1 - x(0)) * (1 - x(0)));
-	//return ((x(0) - 2) * (x(0) - 2) + (x(1) - 1) * (x(1) - 1) + 0.04 / (-(x(0) * x(0) / 4 - x(1) * x(1) + 1)) + 1 / 0.2 * (x(0) - 2 * x(1) + 1) * (x(0) - 2 * x(1) + 1));
+	return(100 * (x(1) - x(0) * x(0))*
+		(x(1) - x(0) * x(0)) + (1 - x(0)) * (1 - x(0)));
 }
 
 

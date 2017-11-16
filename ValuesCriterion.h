@@ -8,7 +8,10 @@ class ValuesCriterion :
 	public AbstractStopCrit
 {
 public:
-	bool criterion(const VectorXd &x1, const VectorXd &x2, double eps, const AbstractFunction &f) const;
+	bool criterion(const VectorXd &x1, 
+					const VectorXd &x2, 
+					double eps, 
+					const AbstractFunction &f) const;
 	ValuesCriterion();
 	~ValuesCriterion();
 };

@@ -1,12 +1,14 @@
 /*!
 	\brief Random Search
 
-	Class that provides random search in bounded area to find global minimum of a function. Extends AbstractOptimizer
+	Class that provides random search in bounded area 
+	to find global minimum of a function. Extends AbstractOptimizer
 */
 
 #pragma once
 #include "AbstractOptimization.h"
 #include "RectangularArea.h"
+#include "OptimizationResult.h"
 #include <Eigen/Dense>
 #include <random>
 
@@ -20,7 +22,7 @@ public:
 		performs random search to find global minimum
 		\param[in] f function to optimize
 	*/
-	VectorXd optim(const AbstractFunction &f);
+	OptimizationResult optim(const AbstractFunction &f);
 	/*!
 		gets random uniformly distributed point in an area
 		\param[in] area box area

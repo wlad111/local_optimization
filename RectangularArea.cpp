@@ -1,4 +1,7 @@
 #include "RectangularArea.h"
+#include <exception>
+
+using namespace std;
 
 
 
@@ -7,9 +10,16 @@ RectangularArea::RectangularArea()
 
 }
 
-RectangularArea::RectangularArea(const VectorXd &l, const VectorXd &r, int d)
+RectangularArea::RectangularArea(const VectorXd &l,
+								const VectorXd &r, int d)
 {
-
+	for (int i = 0; i < d; i++)
+	{
+		if (l(i) > r(i))
+		{
+			throw exception("wrong area");
+		}
+	}
 	dim = d;
 	left = l;
 	right = r;

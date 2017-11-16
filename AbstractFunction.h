@@ -30,7 +30,7 @@ public:
 	*/
 	VectorXd gradient(const VectorXd &x) const; 
 	/*!
-		counts approximate hessian (matrix of second partial derivatives) at chosen vector
+		counts approximate hessian at chosen vector
 		\param[in] x Vector of corresponding dimension
 	*/
 	MatrixXd hessian(const VectorXd &x) const;
