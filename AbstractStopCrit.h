@@ -24,10 +24,14 @@ public:
 		\param[in] f function
 	*/
 	virtual bool criterion(const VectorXd &x1, 
-							const VectorXd &x2, 
-							double eps, 
+							const VectorXd &x2,
 							const AbstractFunction &f) const = 0;
 	AbstractStopCrit();
+	AbstractStopCrit(double eps);
 	virtual ~AbstractStopCrit();
+	double getEpsilon() const;
+	double setEpsilon(double eps);
+protected:
+	double epsilon;
 };
 

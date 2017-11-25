@@ -25,7 +25,7 @@ RandomSearch::~RandomSearch()
 OptimizationResult RandomSearch::optim(const AbstractFunction& f)
 {
 	bool flag = false;
-	double t, delta = 0.01;
+	double t, delta = 0.01*(f.getArea().getRight() - f.getArea().getLeft()).minCoeff();
 	int i = 1, j = 0;
 	int dim = f.getDim();
 	VectorXd y_prev(dim), y_next(dim), x(dim), left(dim), right(dim), x0(dim);

@@ -17,6 +17,7 @@ using namespace std;
 int main()
 {
 	bool flag = true;
+	double epsilon;
 	int t, v;
 	char s = 'a', u = 'a';
 	AbstractFunction* f = 0;
@@ -92,6 +93,7 @@ int main()
 		"Choose the way of optimization: " << endl <<
 		"0 -- for Newton method, anything else -- for random search" << endl;
 	cin >> t;
+	OptimizationResult res;
 
 	switch (t)
 	{
@@ -100,6 +102,8 @@ int main()
 		AbstractStopCrit* crit = 0;
 		NewtonOptimizer newton;
 		VectorXd x0(f->getDim());
+		cout << "Enter accuracy" << endl;
+		cin >> epsilon;
 		cout 
 			<< "Press 0 for Near Points Criterion, anything else for Near values" 
 			<< endl;
@@ -108,11 +112,11 @@ int main()
 		{
 		case 0:
 		{
-			crit = new NearPointsCrit;
+			crit = new NearPointsCrit(epsilon);
 			break;
 		}
 		default:
-			crit = new ValuesCriterion;
+			crit = new ValuesCriterion(epsilon);
 			break;
 		}
 		cout << "Enter initial vector:" << endl;
@@ -122,11 +126,7 @@ int main()
 		}
 		try 
 		{
-			OptimizationResult res;
-			res = newton.optim(x0, EPSILON, *f, *crit);
-			cout << "Point: " << endl << res.getOptPoint() << endl
-				<< "Value: " << res.getOptValue() << endl
-				<< "Iterations: " << res.getNumIterations() << endl;
+			res = newton.optim(x0, *f, *crit);
 		}
 		catch (exception &x)
 		{
@@ -137,14 +137,13 @@ int main()
 	default:
 	{
 		RandomSearch rs(0.7);
-		OptimizationResult res;
 		res = rs.optim(*f);
-		cout << "Point: " << endl << res.getOptPoint() << endl
-			<< "Value: " << res.getOptValue() << endl
-			<< "Iterations: " << res.getNumIterations() << endl;
 		break;
 	}
 	}
+	cout << "Point: " << endl << res.getOptPoint() << endl
+		<< "Value: " << res.getOptValue() << endl
+		<< "Iterations: " << res.getNumIterations() << endl;
 	delete f;
 	system("pause");
 }

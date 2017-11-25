@@ -9,10 +9,10 @@ class ValuesCriterion :
 {
 public:
 	bool criterion(const VectorXd &x1, 
-					const VectorXd &x2, 
-					double eps, 
+					const VectorXd &x2,
 					const AbstractFunction &f) const;
 	ValuesCriterion();
+	ValuesCriterion(double eps);
 	~ValuesCriterion();
 };
 
